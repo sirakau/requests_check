@@ -25,8 +25,7 @@ def inspect_request():
     except:
         body = request.data.decode('utf-8')  # JSON이 아니면 raw text
     
-    # 클라이언트 IP (X-Forwarded-For 포함)
-    client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+    client_ip = request.remote_addr
     
     # 요청 정보를 JSON으로 반환
     info = {
